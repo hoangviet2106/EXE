@@ -1,0 +1,159 @@
+
+<html>
+<head>
+    <title>Micro-Learning Push Log</title>
+    <style>
+        body {
+            font-family: "Segoe UI", Arial, sans-serif;
+            background: linear-gradient(180deg, #0a0f1f, #111827);
+            color: #e0e6ed;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background: #0d172a;
+            color: #00b4d8;
+            padding: 20px 40px;
+            font-size: 22px;
+            font-weight: 600;
+            border-bottom: 1px solid #1e293b;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+        }
+
+        .container {
+            padding: 30px 50px;
+        }
+
+        h2 {
+            color: #00b4d8;
+            margin-bottom: 20px;
+        }
+
+        .search-bar {
+            margin-bottom: 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        input[type="text"] {
+            padding: 8px 14px;
+            border-radius: 8px;
+            border: none;
+            width: 280px;
+            background: #1e293b;
+            color: #fff;
+            outline: none;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: #1e293b;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        th {
+            background: #00b4d8;
+            color: #0a0f1f;
+            text-align: left;
+            padding: 14px;
+            font-size: 15px;
+        }
+
+        td {
+            padding: 12px;
+            border-bottom: 1px solid #334155;
+            font-size: 14px;
+            color: #e2e8f0;
+        }
+
+        tr:hover {
+            background: #0f172a;
+            transition: 0.3s;
+        }
+
+        .status {
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-weight: 600;
+            text-align: center;
+        }
+
+        .status.sent {
+            background: #16a34a;
+            color: #fff;
+        }
+
+        .status.pending {
+            background: #facc15;
+            color: #111827;
+        }
+
+        .status.failed {
+            background: #dc2626;
+            color: #fff;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            font-size: 13px;
+            color: #64748b;
+        }
+    </style>
+</head>
+<body>
+<header>📡 Nhật ký đẩy học tập vi mô</header>
+
+<div class="container">
+    <div class="search-bar">
+        <input type="text" placeholder="🔍 Search by user or lesson...">
+    </div>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Log ID</th>
+                <th>Người dùng</th>
+                <th>Tiêu đề bài học</th>
+                <th>Gửi lúc</th>
+                <th>Trạng thái</th>
+                <th>Kênh</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>#00123</td>
+                <td>Nguyen Van A</td>
+                <td>Phishing Awareness 101</td>
+                <td>2025-10-28 09:32</td>
+                <td><span class="status sent">Sent</span></td>
+                <td>Email</td>
+            </tr>
+            <tr>
+                <td>#00124</td>
+                <td>Le Thi B</td>
+                <td>Password Security Tips</td>
+                <td>2025-10-28 09:45</td>
+                <td><span class="status pending">Pending</span></td>
+                <td>App Notification</td>
+            </tr>
+            <tr>
+                <td>#00125</td>
+                <td>Tran Van C</td>
+                <td>Identifying Malicious Links</td>
+                <td>2025-10-28 10:02</td>
+                <td><span class="status failed">Failed</span></td>
+                <td>Email</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <footer>© 2025 CyberSafe Learning System — All rights reserved.</footer>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,170 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>View Lesson Content</title>
+    <style>
+        body {
+            background: linear-gradient(135deg, #0d1117, #142634, #1a3b4c);
+            font-family: 'Segoe UI', sans-serif;
+            color: #e0f7fa;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: rgba(0, 0, 0, 0.85);
+            padding: 18px 40px;
+            font-size: 24px;
+            font-weight: bold;
+            text-align: center;
+            color: #00e5ff;
+            border-bottom: 2px solid #00e5ff;
+            letter-spacing: 1px;
+        }
+
+        .container {
+            width: 80%;
+            margin: 50px auto;
+            background-color: rgba(0, 0, 0, 0.6);
+            padding: 35px;
+            border-radius: 15px;
+            box-shadow: 0 0 25px rgba(0, 229, 255, 0.3);
+        }
+
+        h2 {
+            color: #00e5ff;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        .lesson-meta {
+            text-align: center;
+            font-size: 15px;
+            color: #a8c0c9;
+            margin-bottom: 25px;
+        }
+
+        video {
+            display: block;
+            margin: 0 auto;
+            width: 70%;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0,229,255,0.2);
+        }
+
+        .quiz-section {
+            background: rgba(255, 255, 255, 0.05);
+            margin-top: 35px;
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        .quiz-question {
+            margin-bottom: 20px;
+        }
+
+        .quiz-question h4 {
+            color: #00e5ff;
+        }
+
+        input[type="radio"] {
+            margin-right: 8px;
+        }
+
+        label {
+            color: #e0f7fa;
+        }
+
+        .btn-group {
+            text-align: center;
+            margin-top: 25px;
+        }
+
+        button {
+            background-color: #00e5ff;
+            color: #000;
+            font-weight: bold;
+            padding: 10px 22px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin: 0 8px;
+        }
+
+        button:hover {
+            background-color: #00bcd4;
+            transform: scale(1.05);
+        }
+
+        footer {
+            text-align: center;
+            padding: 15px;
+            color: #aaa;
+            font-size: 13px;
+            margin-top: 40px;
+        }
+
+        .note {
+            text-align: center;
+            font-size: 14px;
+            color: #a1b5be;
+            margin-top: 15px;
+        }
+
+    </style>
+</head>
+<body>
+
+<header>
+    🎓 Xem nội dung bài học
+</header>
+
+<div class="container">
+    <h2>Lesson 101 "Cybersecurity Awareness: Phishing Simulation" </h2>
+    <div class="lesson-meta">
+        Dạng: <b> "Video" </b> |
+        Thời gian: <b>: 5 mins</b>
+    </div>
+
+    <!-- Nếu là video -->
+        <video controls>
+            <source src="" type="video">
+            Your browser does not support the video tag.
+        </video>
+        <p class="note">🎥 Xem video ngắn này và nhấp vào “Đánh dấu là đã hoàn thành” khi hoàn tất.</p>
+
+    <!-- Nếu là quiz -->
+    <div class="quiz-section">
+        <div class="quiz-question">
+            <h4>1. What is phishing?</h4>
+            <label><input type="radio" name="q1"> A type of cyber attack via deceptive emails</label><br>
+            <label><input type="radio" name="q1"> A secure way to share files</label><br>
+            <label><input type="radio" name="q1"> A firewall protection method</label>
+        </div>
+
+        <div class="quiz-question">
+            <h4>2. What should you do if you suspect a phishing email?</h4>
+            <label><input type="radio" name="q2"> Reply to verify</label><br>
+            <label><input type="radio" name="q2"> Click the link to check</label><br>
+            <label><input type="radio" name="q2"> Report to IT/security team immediately</label>
+        </div>
+
+        <p class="note">🧠 Chọn câu trả lời của bạn và nhấp vào "Gửi bài kiểm tra" bên dưới.</p>
+    </div>
+    
+
+    <div class="btn-group">
+        <button onclick="alert('Lesson marked as completed! ✅')">Hoàn thành</button>
+        <button onclick="window.location.href='TrainingDashboard.html'">← Quay lại</button>
+    </div>
+</div>
+
+<footer>
+    &copy; 2025 PhishCoach | Secure Learning Platform
+</footer>
+
+</body>
+</html>

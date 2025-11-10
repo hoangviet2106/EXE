@@ -1,0 +1,196 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Content Tagging & Search</title>
+    <style>
+        body {
+            background-color: #0a0f1a;
+            color: #e0e0e0;
+            font-family: "Segoe UI", sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #0d1b2a;
+            padding: 20px 40px;
+            border-bottom: 2px solid #00c8ff;
+            text-align: center;
+        }
+
+        header h1 {
+            color: #00c8ff;
+            font-size: 24px;
+            letter-spacing: 1px;
+            text-shadow: 0 0 10px #00c8ff;
+        }
+
+        .container {
+            width: 85%;
+            margin: 40px auto;
+            background-color: #102337;
+            padding: 30px;
+            border-radius: 16px;
+            box-shadow: 0 0 20px rgba(0, 200, 255, 0.2);
+        }
+
+        h2 {
+            color: #00c8ff;
+            text-shadow: 0 0 5px #00c8ff;
+        }
+
+        .search-bar {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 25px;
+        }
+
+        .search-bar input, .search-bar select {
+            padding: 10px 14px;
+            border-radius: 8px;
+            border: 1px solid #00c8ff;
+            background-color: #091524;
+            color: #e0e0e0;
+            width: 250px;
+        }
+
+        .search-bar button {
+            background-color: #00c8ff;
+            border: none;
+            color: #0a0f1a;
+            font-weight: bold;
+            border-radius: 8px;
+            padding: 10px 20px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .search-bar button:hover {
+            background-color: #00ffff;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: #0f1e2e;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        th, td {
+            padding: 14px 16px;
+            text-align: left;
+            border-bottom: 1px solid #1b3a4b;
+        }
+
+        th {
+            background-color: #00c8ff;
+            color: #0a0f1a;
+            text-transform: uppercase;
+            font-size: 14px;
+        }
+
+        tr:hover {
+            background-color: #112a3d;
+        }
+
+        .tag {
+            background-color: #004e64;
+            color: #aefeff;
+            padding: 5px 10px;
+            border-radius: 12px;
+            margin-right: 5px;
+            font-size: 13px;
+        }
+
+        .btn-edit {
+            background-color: #0077b6;
+            border: none;
+            color: white;
+            padding: 6px 12px;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        .btn-edit:hover {
+            background-color: #00c8ff;
+            color: #0a0f1a;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>📂 Gắn thẻ nội dung và tìm kiếm</h1>
+
+    </header>
+
+    <div class="container">
+        <h2>Tìm kiếm & lọc các bài học</h2>
+        <div class="search-bar">
+            <input type="text" placeholder="Tìm kiếm tiêu đề bài học...">
+            <select>
+                <option value="">Tất cả Loại</option>
+                <option>Banking</option>
+                <option>E-commerce</option>
+                <option>Phishing Awareness</option>
+                <option>Password Security</option>
+            </select>
+            <button>🔍 Tìm kiếm</button>
+        </div>
+
+        <h2>Thư viện bài học</h2>
+        <table>
+            <tr>
+                <th>Bài học ID</th>
+                <th>Tiêu đề</th>
+                <th>Tags</th>
+                <th>Cập nhật lần cuối</th>
+                <th>Hành động</th>
+            </tr>
+            <tr>
+                <td>#001</td>
+                <td>Phishing Emails: Spot the Red Flags</td>
+                <td>
+                    <span class="tag">Phishing</span>
+                    <span class="tag">Banking</span>
+                    <span class="tag">Email</span>
+                </td>
+                <td>2025-10-25</td>
+                <td><button class="btn-edit">Edit Tags</button></td>
+            </tr>
+            <tr>
+                <td>#002</td>
+                <td>Strong Passwords 101</td>
+                <td>
+                    <span class="tag">Password Security</span>
+                    <span class="tag">Best Practice</span>
+                </td>
+                <td>2025-10-21</td>
+                <td><button class="btn-edit">Edit Tags</button></td>
+            </tr>
+            <tr>
+                <td>#003</td>
+                <td>Safe Online Shopping Habits</td>
+                <td>
+                    <span class="tag">E-commerce</span>
+                    <span class="tag">Personal Data</span>
+                </td>
+                <td>2025-10-17</td>
+                <td><button class="btn-edit">Edit Tags</button></td>
+            </tr>
+            <tr>
+                <td>#004</td>
+                <td>Recognizing Social Engineering Tactics</td>
+                <td>
+                    <span class="tag">Awareness</span>
+                    <span class="tag">Cyber Threats</span>
+                </td>
+                <td>2025-10-10</td>
+                <td><button class="btn-edit">Edit Tags</button></td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>

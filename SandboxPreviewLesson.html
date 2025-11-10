@@ -1,0 +1,166 @@
+
+<html>
+<head>
+    <title>Sandbox Lesson Preview</title>
+    <style>
+        body {
+            font-family: "Segoe UI", Arial, sans-serif;
+            background: linear-gradient(180deg, #0a0f1f, #111827);
+            color: #e2e8f0;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background: #0d172a;
+            color: #00b4d8;
+            padding: 20px 40px;
+            font-size: 22px;
+            font-weight: 600;
+            border-bottom: 1px solid #1e293b;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+        }
+
+        .container {
+            padding: 40px 60px;
+        }
+
+        h2 {
+            color: #00b4d8;
+            margin-bottom: 15px;
+        }
+
+        .desc {
+            color: #94a3b8;
+            font-size: 14px;
+            margin-bottom: 25px;
+        }
+
+        .sandbox-box {
+            background: #1e293b;
+            border-radius: 10px;
+            padding: 25px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        select, input[type="text"] {
+            width: 100%;
+            padding: 10px 12px;
+            border-radius: 8px;
+            border: none;
+            background: #0f172a;
+            color: #e2e8f0;
+            margin-bottom: 20px;
+            outline: none;
+        }
+
+        button {
+            background: #00b4d8;
+            border: none;
+            border-radius: 8px;
+            color: #0a0f1f;
+            font-weight: 600;
+            padding: 10px 16px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background: #0096c7;
+        }
+
+        .preview-section {
+            margin-top: 35px;
+        }
+
+        .video-frame {
+            width: 100%;
+            height: 320px;
+            border-radius: 10px;
+            border: none;
+            background: #000;
+            margin-bottom: 20px;
+        }
+
+        .quiz-preview {
+            background: #0f172a;
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+        .question {
+            margin-bottom: 15px;
+        }
+
+        .question strong {
+            color: #00b4d8;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            font-size: 13px;
+            color: #64748b;
+        }
+    </style>
+</head>
+<body>
+
+<header>🧩 Xem trước bài học Sandbox</header>
+
+<div class="container">
+    <h2>Giao bài kiểm tra</h2>
+    <p class="desc">Mô phỏng cách bài học sẽ hiển thị với một người dùng trước khi xuất bản lên các chiến dịch.</p>
+
+    <div class="sandbox-box">
+        <form>
+            <label for="lesson">Lựa chọn bài học:</label>
+            <select id="lesson">
+                <option>Phishing Awareness 101</option>
+                <option>Password Security Basics</option>
+                <option>Social Engineering 101</option>
+            </select>
+
+            <label for="testUser">Người dùng thử (email):</label>
+            <input type="text" id="testUser" placeholder="example@company.com">
+
+            <button type="button">▶ Khởi chạy bản xem trước</button>
+        </form>
+    </div>
+
+    <div class="preview-section">
+        <h3 style="color:#00b4d8;">Lesson Preview</h3>
+        <iframe class="video-frame" src="https://youtu.be/Otc_JjsYqhs?si=2DQrUw53BwA1umXN" allowfullscreen></iframe>
+
+        <div class="quiz-preview">
+            <div class="question">
+                <strong>1. What is phishing?</strong><br>
+                <label><input type="radio" name="q1"> A cyber-attack method using fake emails</label><br>
+                <label><input type="radio" name="q1"> A method for encrypting data</label><br>
+                <label><input type="radio" name="q1"> A software update process</label>
+            </div>
+
+            <div class="question">
+                <strong>2. Which action helps prevent phishing?</strong><br>
+                <label><input type="radio" name="q2"> Click suspicious links</label><br>
+                <label><input type="radio" name="q2"> Verify sender identity</label><br>
+                <label><input type="radio" name="q2"> Ignore all emails</label>
+            </div>
+
+            <button>✅ Hoàn thành kiểm thử</button>
+        </div>
+    </div>
+</div>
+
+<div class="footer">
+    © 2025 CyberSafe Learning Platform — Internal Sandbox Environment
+</div>
+
+</body>
+</html>

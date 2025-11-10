@@ -1,0 +1,133 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Add Quiz Question</title>
+    <style>
+        body {
+            background: radial-gradient(circle at top, #0a0f1f, #000);
+            color: #e0e0e0;
+            font-family: "Segoe UI", sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            min-height: 100vh;
+            margin: 0;
+            padding: 40px;
+        }
+
+        .quiz-form {
+            background: rgba(20, 25, 40, 0.95);
+            border: 1px solid #0ff;
+            border-radius: 15px;
+            width: 650px;
+            padding: 30px 40px;
+            box-shadow: 0 0 25px rgba(0, 255, 255, 0.2);
+            animation: fadeIn 1s ease;
+        }
+
+        h1 {
+            text-align: center;
+            color: #00e6e6;
+            text-shadow: 0 0 10px #00ffff;
+            margin-bottom: 30px;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            color: #aef;
+            margin-top: 15px;
+            margin-bottom: 5px;
+        }
+
+        input[type="text"], textarea, select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #00b3b3;
+            border-radius: 8px;
+            background: rgba(0, 15, 25, 0.8);
+            color: #fff;
+            font-size: 15px;
+        }
+
+        textarea {
+            height: 80px;
+            resize: none;
+        }
+
+        .options input {
+            width: 96%;
+            margin-bottom: 8px;
+        }
+
+        .button-group {
+            margin-top: 25px;
+            text-align: center;
+        }
+
+        button {
+            background: linear-gradient(90deg, #00ffff, #0077ff);
+            color: black;
+            font-weight: bold;
+            padding: 10px 25px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin: 0 8px;
+        }
+
+        button:hover {
+            background: linear-gradient(90deg, #0077ff, #00ffff);
+            transform: scale(1.05);
+            box-shadow: 0 0 15px #00ffff;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-15px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+    <form class="quiz-form" action="AddQuizQuestionServlet" method="post">
+        <h1>Thêm câu hỏi trắc nghiệm</h1>
+
+        <label for="module">Lựa chọn Module:</label>
+        <select id="module" name="moduleId" required>
+            <option value="">-- Select Module --</option>
+            <option value="1">Cybersecurity Awareness</option>
+            <option value="2">Phishing Prevention</option>
+            <option value="3">Data Privacy Basics</option>
+        </select>
+
+        <label for="question">Câu hỏi:</label>
+        <textarea id="question" name="questionText" placeholder="Enter your question..." required></textarea>
+
+        <div class="options">
+            <label>Lựa chọn:</label>
+            <input type="text" name="optionA" placeholder="Option A" required>
+            <input type="text" name="optionB" placeholder="Option B" required>
+            <input type="text" name="optionC" placeholder="Option C" required>
+            <input type="text" name="optionD" placeholder="Option D" required>
+        </div>
+
+        <label for="correct">Đáp án đúng:</label>
+        <select id="correct" name="correctAnswer" required>
+            <option value="">-- Choose --</option>
+            <option value="A">A</option>
+            <option value="B">B</option>
+            <option value="C">C</option>
+            <option value="D">D</option>
+        </select>
+
+        <div class="button-group">
+            <button type="submit">Thêm câu hỏi</button>
+            <button type="reset">Cài lại</button>
+            <button type="back" onclick="window.location.href='ListQuizQuestions.html'">Quay lại</button>
+        </div>
+    </form>
+</body>
+</html>

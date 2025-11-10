@@ -1,0 +1,223 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Lesson Completion Rates by Department</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    body {
+      font-family: "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top, #0a0f1f, #000);
+      color: #e0e0e0;
+      margin: 0;
+      padding: 40px;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      min-height: 100vh;
+    }
+
+    .container {
+      width: 95%;
+      max-width: 1100px;
+      background: rgba(20, 25, 40, 0.95);
+      border: 1px solid #00ffff;
+      border-radius: 16px;
+      padding: 35px 45px;
+      box-shadow: 0 0 25px rgba(0, 255, 255, 0.15);
+      animation: fadeIn 0.8s ease;
+    }
+
+    h1 {
+      text-align: center;
+      color: #00ffff;
+      text-shadow: 0 0 10px #00ffff;
+      margin-bottom: 25px;
+    }
+
+    .chart-container {
+      background: rgba(0, 10, 20, 0.9);
+      border-radius: 12px;
+      padding: 25px;
+      box-shadow: 0 0 15px rgba(0,255,255,0.1);
+      margin-bottom: 35px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: rgba(0, 15, 25, 0.9);
+      border-radius: 10px;
+      border: 1px solid #00b3b3;
+      overflow: hidden;
+    }
+
+    th, td {
+      padding: 12px 15px;
+      text-align: left;
+      border-bottom: 1px solid rgba(0,255,255,0.1);
+    }
+
+    th {
+      background: rgba(0, 255, 255, 0.1);
+      color: #00ffff;
+      text-transform: uppercase;
+      font-size: 14px;
+    }
+
+    tr:hover {
+      background: rgba(0, 255, 255, 0.05);
+      transition: 0.3s;
+    }
+
+    .progress-bar {
+      width: 100%;
+      height: 8px;
+      background: #111;
+      border-radius: 4px;
+      overflow: hidden;
+      margin-top: 5px;
+    }
+
+    .progress-fill {
+      height: 100%;
+      background: linear-gradient(90deg, #00ffff, #0077ff);
+    }
+
+    .filter {
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    select {
+      background: rgba(0, 15, 25, 0.85);
+      color: #fff;
+      border: 1px solid #00b3b3;
+      border-radius: 8px;
+      padding: 10px;
+      font-size: 15px;
+    }
+
+    button {
+      background: linear-gradient(90deg, #00ffff, #0077ff);
+      color: #000;
+      font-weight: bold;
+      border: none;
+      border-radius: 8px;
+      padding: 10px 20px;
+      cursor: pointer;
+      transition: 0.3s;
+      margin-left: 10px;
+    }
+
+    button:hover {
+      background: linear-gradient(90deg, #0077ff, #00ffff);
+      box-shadow: 0 0 15px #00ffff;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Tỷ lệ hoàn thành bài học theo khoa</h1>
+
+    <div class="filter">
+      <label for="lessonSelect">Lựa chọn bài học:</label>
+      <select id="lessonSelect">
+        <option value="">-- Lựa chọn --</option>
+        <option value="phishing">Phishing Awareness Basics</option>
+        <option value="password">Password Security Fundamentals</option>
+        <option value="links">Recognizing Suspicious Links</option>
+      </select>
+      <button onclick="filterData()">🔍 Lọc</button>
+    </div>
+
+    <div class="chart-container">
+      <canvas id="completionChart" height="120"></canvas>
+    </div>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Phòng ban</th>
+          <th>Số lượng</th>
+          <th>Hoàn thành</th>
+          <th>Tỉ lệ hoàn thành</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>IT Department</td>
+          <td>30</td>
+          <td>25</td>
+          <td>
+            83%
+            <div class="progress-bar"><div class="progress-fill" style="width: 83%;"></div></div>
+          </td>
+        </tr>
+        <tr>
+          <td>Finance Department</td>
+          <td>20</td>
+          <td>14</td>
+          <td>
+            70%
+            <div class="progress-bar"><div class="progress-fill" style="width: 70%;"></div></div>
+          </td>
+        </tr>
+        <tr>
+          <td>HR Department</td>
+          <td>10</td>
+          <td>8</td>
+          <td>
+            80%
+            <div class="progress-bar"><div class="progress-fill" style="width: 80%;"></div></div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <script>
+    const ctx = document.getElementById('completionChart').getContext('2d');
+    const completionChart = new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: ['IT', 'Finance', 'HR'],
+        datasets: [{
+          label: 'Completion Rate (%)',
+          data: [83, 70, 80],
+          backgroundColor: ['#00ffffaa', '#0077ffaa', '#00b3ffaa'],
+          borderColor: '#00ffff',
+          borderWidth: 1
+        }]
+      },
+      options: {
+        responsive: true,
+        scales: {
+          y: {
+            beginAtZero: true,
+            ticks: { color: '#e0e0e0' },
+            grid: { color: 'rgba(0,255,255,0.1)' }
+          },
+          x: {
+            ticks: { color: '#e0e0e0' },
+            grid: { color: 'rgba(0,255,255,0.1)' }
+          }
+        },
+        plugins: {
+          legend: { labels: { color: '#00ffff' } }
+        }
+      }
+    });
+
+    function filterData() {
+      alert("Filtering completion rates by selected lesson...");
+    }
+  </script>
+</body>
+</html>

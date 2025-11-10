@@ -1,0 +1,142 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Assign Modules to Campaign</title>
+    <style>
+        body {
+            background: radial-gradient(circle at top, #0a0f1f, #000);
+            color: #e0e0e0;
+            font-family: "Segoe UI", sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            min-height: 100vh;
+            margin: 0;
+            padding: 40px;
+        }
+
+        .assign-container {
+            background: rgba(20, 25, 40, 0.95);
+            border: 1px solid #00ffff;
+            border-radius: 16px;
+            width: 720px;
+            padding: 35px 45px;
+            box-shadow: 0 0 25px rgba(0, 255, 255, 0.2);
+            animation: fadeIn 1s ease;
+        }
+
+        h1 {
+            text-align: center;
+            color: #00e6e6;
+            text-shadow: 0 0 12px #00ffff;
+            margin-bottom: 25px;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            color: #aef;
+            margin-top: 15px;
+            margin-bottom: 8px;
+        }
+
+        select, input[type="checkbox"] {
+            accent-color: #00ffff;
+        }
+
+        select, input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #00b3b3;
+            border-radius: 8px;
+            background: rgba(0, 15, 25, 0.85);
+            color: #fff;
+            font-size: 15px;
+        }
+
+        .modules-list {
+            background: rgba(0, 10, 20, 0.8);
+            border: 1px solid #00b3b3;
+            border-radius: 10px;
+            padding: 15px 20px;
+            margin-top: 10px;
+            max-height: 250px;
+            overflow-y: auto;
+        }
+
+        .modules-list label {
+            font-weight: normal;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 5px 0;
+        }
+
+        .button-group {
+            margin-top: 30px;
+            text-align: center;
+        }
+
+        button {
+            background: linear-gradient(90deg, #00ffff, #0077ff);
+            color: black;
+            font-weight: bold;
+            padding: 10px 28px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin: 0 10px;
+        }
+
+        button:hover {
+            background: linear-gradient(90deg, #0077ff, #00ffff);
+            transform: scale(1.05);
+            box-shadow: 0 0 15px #00ffff;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-15px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .scrollbar::-webkit-scrollbar {
+            width: 8px;
+        }
+        .scrollbar::-webkit-scrollbar-thumb {
+            background: #00b3b3;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <form class="assign-container" action="AssignModuleToCampaignServlet" method="post">
+        <h1>Chỉ định Modules cho chiến dịch</h1>
+
+        <label for="campaign">Lựa chọn chiến dịch:</label>
+        <select id="campaign" name="campaignId" required>
+            <option value="">-- Select Campaign --</option>
+            <option value="1">Phishing Awareness Q4</option>
+            <option value="2">Data Privacy 2025</option>
+            <option value="3">Cyber Hygiene Training</option>
+        </select>
+
+        <label>Chọn Micro-learning Modules:</label>
+        <div class="modules-list scrollbar">
+            <label><input type="checkbox" name="moduleId" value="101"> Introduction to Phishing</label>
+            <label><input type="checkbox" name="moduleId" value="102"> Identifying Suspicious Links</label>
+            <label><input type="checkbox" name="moduleId" value="103"> Password Security Basics</label>
+            <label><input type="checkbox" name="moduleId" value="104"> Email Spoofing Detection</label>
+            <label><input type="checkbox" name="moduleId" value="105"> Social Engineering Defense</label>
+            <label><input type="checkbox" name="moduleId" value="106"> Data Handling and Privacy</label>
+        </div>
+
+        <div class="button-group">
+            <button type="submit">Đăng kí Modules</button>
+            <button type="reset">làm trống</button>
+        </div>
+    </form>
+</body>
+</html>

@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Danh sách Module Đào tạo - PhishCoach</title>
+  <style>
+    body {
+      font-family: "Segoe UI", sans-serif;
+      background-color: #0a192f;
+      color: #e0e6ed;
+      margin: 0;
+      display: flex;
+    }
+
+    /* ===== Sidebar ===== */
+    .sidebar {
+      width: 270px;
+      background-color: #112240;
+      height: 100vh;
+      position: fixed;
+      top: 0;
+      left: 0;
+      display: flex;
+      flex-direction: column;
+      border-right: 1px solid #1f4068;
+      padding-top: 20px;
+    }
+
+    .sidebar h2 {
+      color: #64ffda;
+      font-size: 18px;
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .sidebar a {
+      text-decoration: none;
+      color: #e0e6ed;
+      padding: 12px 25px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      border-left: 3px solid transparent;
+      transition: 0.3s;
+      font-size: 15px;
+    }
+
+    .sidebar a:hover, .sidebar a.active {
+      background-color: #0f274a;
+      border-left: 3px solid #64ffda;
+      color: #64ffda;
+    }
+
+    /* ===== Main content ===== */
+    .main-content {
+      margin-left: 230px;
+      width: calc(100% - 230px);
+    }
+
+    header {
+      background: #112240;
+      color: #64ffda;
+      padding: 16px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #1f4068;
+    }
+
+    header h1 {
+      font-size: 22px;
+      margin: 0;
+    }
+
+    .container {
+      padding: 30px 60px;
+    }
+
+    .filters {
+      display: flex;
+      gap: 15px;
+      margin-bottom: 25px;
+    }
+
+    select, input[type="date"], input[type="text"] {
+      padding: 8px 12px;
+      border: 1px solid #1f4068;
+      border-radius: 6px;
+      background: #112240;
+      color: #e0e6ed;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background-color: #112240;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+    }
+
+    th, td {
+      padding: 14px;
+      text-align: left;
+      border-bottom: 1px solid #1f4068;
+    }
+
+    th {
+      background-color: #1d3557;
+      color: #64ffda;
+      font-weight: 600;
+      text-transform: uppercase;
+      font-size: 13px;
+    }
+
+    tr:hover {
+      background-color: #0f274a;
+      transition: 0.3s;
+    }
+
+    .status {
+      font-weight: bold;
+      padding: 5px 10px;
+      border-radius: 8px;
+      font-size: 13px;
+    }
+
+    .Active { background: #173f5f; color: #3ccf91; }
+    .Draft { background: #2f2f2f; color: #ffba08; }
+    .Archived { background: #3d2c2e; color: #e63946; }
+
+    .btn {
+      border: none;
+      border-radius: 6px;
+      padding: 8px 14px;
+      font-size: 14px;
+      cursor: pointer;
+      color: #fff;
+      transition: all 0.2s;
+    }
+
+    .btn-add { background-color: #3ccf91; color: #0a192f; }
+    .btn-edit { background-color: #0077b6; }
+    .btn-delete { background-color: #e63946; }
+    .btn:hover { opacity: 0.85; }
+
+    .actions {
+      display: flex;
+      gap: 8px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      font-size: 13px;
+      color: #999;
+      border-top: 1px solid #1f4068;
+      margin-top: 30px;
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- ===== Sidebar ===== -->
+  <div class="sidebar">
+    <h2>PhishCoach</h2>
+    <a href="HomeDashboard.html" class="active">🏠 Home</a>
+    <a href="ListTrainingModules.html">📚 List Training Modules </a>
+    <a href="ListQuizQuestions.html">📚 List Quiz Questions</a>
+    <a href="AssignModuleToCampaign.html">🧩 Assign Module To Campaign</a>
+    <a href="LessonCompletionDetail.html">📊 Lesson Completion Detail</a>
+    <a href="ListLessonCompletionRates.html">👥 List Lesson Completion Rates</a>
+    <a href="MicroLearningPushLog.html">⚙️ Micro-Learning PushLog</a>
+    <a href="LibraryLocalization.html">🌐 Library Localization</a>
+    <a href="SandboxPreviewLesson.html">🧩 Sandbox Preview Lesson</a>
+    <a href="ContentTaggingAndSearch.html">📂 Content Tagging And Search</a>
+  </div>
+
+  <!-- ===== Main content ===== -->
+  <div class="main-content">
+    <header>
+      <h1>📚 Danh sách Module Đào tạo</h1>
+      <button class="btn btn-add" onclick="window.location.href='AddMicroLearningVideo.html'">+ Thêm Module</button>
+    </header>
+
+    <div class="container">
+      <div class="filters">
+        <input type="text" placeholder="🔍 Tìm theo tên module...">
+        <select>
+          <option>Tất cả trạng thái</option>
+          <option>Hoạt động</option>
+          <option>Bản nháp</option>
+          <option>Đã lưu trữ</option>
+        </select>
+        <input type="date">
+        <input type="date">
+        <button class="btn btn-add" onclick="window.location.href='LessonCompletionDetail.html'">📊 Xem chi tiết hoàn thành</button>
+      </div>
+
+      <table>
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Tên Module</th>
+            <th>Chủ đề</th>
+            <th>Người tạo</th>
+            <th>Ngày tạo</th>
+            <th>Trạng thái</th>
+            <th>Hành động</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>Lesson 101</td>
+            <td>An toàn Email</td>
+            <td>Admin</td>
+            <td>2025-01-10</td>
+            <td><span class="status Active">Active</span></td>
+            <td class="actions">
+              <button class="btn btn-edit" onclick="window.location.href='EditTrainingModule.html'">✏️ Sửa</button>
+              <button class="btn btn-delete" onclick="window.location.href='ViewLessonContent.html'">📖 Học</button>
+            </td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>Lesson 102</td>
+            <td>Bảo mật tài khoản</td>
+            <td>ContentMgr</td>
+            <td>2025-02-02</td>
+            <td><span class="status Draft">Draft</span></td>
+            <td class="actions">
+              <button class="btn btn-edit" onclick="window.location.href='EditTrainingModule.html'">✏️ Sửa</button>
+              <button class="btn btn-delete" onclick="window.location.href='ViewLessonContent.html'">📖 Học</button>
+            </td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>Lesson 103</td>
+            <td>Phát hiện liên kết giả</td>
+            <td>Admin</td>
+            <td>2025-02-10</td>
+            <td><span class="status Archived">Archived</span></td>
+            <td class="actions">
+              <button class="btn btn-edit" onclick="window.location.href='EditTrainingModule.html'">✏️ Sửa</button>
+              <button class="btn btn-delete" onclick="window.location.href='ViewLessonContent.html'">📖 Học</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <footer>
+      © 2025 PhishCoach | Secure Learning Platform
+    </footer>
+  </div>
+
+</body>
+</html>

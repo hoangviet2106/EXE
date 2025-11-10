@@ -1,0 +1,149 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Add Micro-Learning Video</title>
+    <style>
+        body {
+            background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+            color: #fff;
+            font-family: 'Segoe UI', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 15px 40px;
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+            letter-spacing: 1px;
+            color: #00e5ff;
+            border-bottom: 2px solid #00e5ff;
+        }
+
+        .container {
+            width: 50%;
+            margin: 60px auto;
+            background: rgba(0, 0, 0, 0.6);
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(0, 229, 255, 0.4);
+            padding: 30px 40px;
+        }
+
+        h2 {
+            text-align: center;
+            color: #00e5ff;
+            margin-bottom: 30px;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            margin-top: 15px;
+        }
+
+        input[type="text"], input[type="url"], textarea, select {
+            width: 100%;
+            padding: 10px;
+            margin-top: 6px;
+            border: none;
+            border-radius: 5px;
+            background-color: #1b2836;
+            color: #fff;
+            font-size: 15px;
+        }
+
+        input[type="file"] {
+            margin-top: 8px;
+            color: #fff;
+        }
+
+        .btn-group {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        button {
+            padding: 10px 25px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            background: #00e5ff;
+            color: #000;
+            font-weight: bold;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            margin: 0 10px;
+        }
+
+        button:hover {
+            background-color: #00bcd4;
+            transform: scale(1.05);
+        }
+
+        .note {
+            color: #aaa;
+            font-size: 13px;
+            margin-top: 10px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            color: #aaa;
+            font-size: 13px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        🎥 Thêm mới video miro mới
+    </header>
+
+    <div class="container">
+        <h2>Tải lên hoặc liên kết video bài học mới</h2>
+        <form action="AddVideoServlet" method="post" enctype="multipart/form-data">
+            <label for="title">Tiêu đề Video:</label>
+            <input type="text" id="title" name="title" placeholder="Enter video title" required>
+
+            <label for="description">Mô tả ngắn:</label>
+            <textarea id="description" name="description" rows="3" placeholder="Briefly describe the video..." required></textarea>
+
+            <label for="category">Loại:</label>
+            <select id="category" name="category" required>
+                <option value="">-- Lựa chọn --</option>
+                <option value="Phishing Awareness">Phishing Awareness</option>
+                <option value="Password Security">Password Security</option>
+                <option value="Social Engineering">Social Engineering</option>
+                <option value="Email Safety">Email Safety</option>
+            </select>
+
+            <label for="duration">Duration (minutes):</label>
+            <input type="text" id="duration" name="duration" placeholder="e.g., 3 - 5" required>
+
+            <label for="videoUpload">Upload Video File:</label>
+            <input type="file" id="videoUpload" name="videoFile" accept="video/*">
+
+            <label for="videoLink">Or Link YouTube/Vimeo URL:</label>
+            <input type="url" id="videoLink" name="videoLink" placeholder="https://...">
+
+            <p class="note">📘 Tip: Videos should be 3–5 minutes long and concise.</p>
+
+            <div class="btn-group">
+                <button type="submit">Tải Video</button>
+                <button type="reset">Cài lại</button>
+                <button type="button" onclick="window.location.href='TrainingDashboard.html'">Quay lại</button>
+            </div>
+        </form>
+    </div>
+
+    <footer>
+        &copy; 2025 PhishCoach | Secure Learning Management System
+    </footer>
+
+</body>
+</html>

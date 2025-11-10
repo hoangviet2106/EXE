@@ -1,0 +1,208 @@
+
+<html>
+<head>
+    <title>Library Localization Management</title>
+    <style>
+        body {
+            font-family: "Segoe UI", Arial, sans-serif;
+            background: linear-gradient(180deg, #0a0f1f, #111827);
+            color: #e0e6ed;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background: #0d172a;
+            color: #00b4d8;
+            padding: 20px 40px;
+            font-size: 22px;
+            font-weight: 600;
+            border-bottom: 1px solid #1e293b;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+        }
+
+        .container {
+            padding: 40px 60px;
+        }
+
+        h2 {
+            color: #00b4d8;
+            margin-bottom: 25px;
+        }
+
+        .toolbar {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 25px;
+        }
+
+        .toolbar input[type="text"] {
+            padding: 10px 15px;
+            border-radius: 8px;
+            border: none;
+            width: 300px;
+            background: #1e293b;
+            color: #fff;
+            outline: none;
+        }
+
+        .toolbar button {
+            background: #00b4d8;
+            color: #0a0f1f;
+            font-weight: 600;
+            border: none;
+            border-radius: 8px;
+            padding: 10px 16px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .toolbar button:hover {
+            background: #0096c7;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: #1e293b;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        th {
+            background: #00b4d8;
+            color: #0a0f1f;
+            text-align: left;
+            padding: 14px;
+            font-size: 15px;
+        }
+
+        td {
+            padding: 12px;
+            border-bottom: 1px solid #334155;
+            font-size: 14px;
+        }
+
+        tr:hover {
+            background: #0f172a;
+            transition: 0.3s;
+        }
+
+        select {
+            padding: 6px 10px;
+            border-radius: 6px;
+            border: none;
+            background: #0f172a;
+            color: #e2e8f0;
+        }
+
+        .lang-badge {
+            padding: 5px 10px;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 13px;
+            color: #0f172a;
+        }
+
+        .lang-vn {
+            background: #10b981;
+        }
+
+        .lang-en {
+            background: #facc15;
+        }
+
+        .lang-jp {
+            background: #3b82f6;
+        }
+
+        .actions button {
+            background: transparent;
+            border: none;
+            color: #00b4d8;
+            cursor: pointer;
+            margin-right: 8px;
+            font-size: 14px;
+        }
+
+        .actions button:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            font-size: 13px;
+            color: #64748b;
+        }
+    </style>
+</head>
+<body>
+<header>🌐 Quản lý bản địa hóa thư viện</header>
+
+<div class="container">
+    <h2>Quản lý các phiên bản nội dung được bản địa hóa (VN-first)</h2>
+
+    <div class="toolbar">
+        <input type="text" placeholder="🔍 Tìm kiếm...">
+        <button>+ Thêm nội dung việt hóa</button>
+        <button onclick="window.location.href='TrainingDashboard.html'"></buttonclass>Quay lại</button>
+    </div>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Nội dung ID</th>
+                <th>Tiêu đề</th>
+                <th>Ngôn ngữ</th>
+                <th>Trạng thái</th>
+                <th>Lần cuối cập nhật</th>
+                <th>Dịch</th>
+                <th>Hành động</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>CT-001</td>
+                <td>Phishing Awareness 101</td>
+                <td><span class="lang-badge lang-vn">VN</span></td>
+                <td>✅ Published</td>
+                <td>2025-10-27</td>
+                <td>Tran Minh Duc</td>
+                <td class="actions">
+                    <button>Edit</button>
+                    <button>View</button>
+                </td>
+            </tr>
+            <tr>
+                <td>CT-002</td>
+                <td>Password Security Tips</td>
+                <td><span class="lang-badge lang-en">EN</span></td>
+                <td>🕓 Draft</td>
+                <td>2025-10-25</td>
+                <td>Le Hoang</td>
+                <td class="actions">
+                    <button>Edit</button>
+                    <button>View</button>
+                </td>
+            </tr>
+            <tr>
+                <td>CT-003</td>
+                <td>Social Engineering Tactics</td>
+                <td><span class="lang-badge lang-jp">JP</span></td>
+                <td>✅ Published</td>
+                <td>2025-10-23</td>
+                <td>Yamada Haru</td>
+                <td class="actions">
+                    <button>Edit</button>
+                    <button>View</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <footer>© 2025 CyberSafe Learning Platform — All rights reserved.</footer>
+</div>
+
+</body>
+</html>

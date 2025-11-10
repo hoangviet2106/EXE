@@ -1,0 +1,203 @@
+
+<html>
+<head>
+    <title>Bulk Upload Lesson Metadata</title>
+    <style>
+        body {
+            font-family: "Segoe UI", Arial, sans-serif;
+            background: linear-gradient(180deg, #0a0f1f, #111827);
+            color: #e2e8f0;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background: #0d172a;
+            color: #00b4d8;
+            padding: 20px 40px;
+            font-size: 22px;
+            font-weight: 600;
+            border-bottom: 1px solid #1e293b;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+        }
+
+        .container {
+            padding: 50px 70px;
+            max-width: 900px;
+            margin: auto;
+        }
+
+        h2 {
+            color: #00b4d8;
+            margin-bottom: 10px;
+        }
+
+        p.desc {
+            color: #94a3b8;
+            font-size: 15px;
+            margin-bottom: 25px;
+        }
+
+        .upload-box {
+            background: #1e293b;
+            border-radius: 10px;
+            padding: 40px;
+            text-align: center;
+            border: 2px dashed #334155;
+            transition: 0.3s;
+        }
+
+        .upload-box:hover {
+            border-color: #00b4d8;
+            background: #0f172a;
+        }
+
+        .upload-icon {
+            font-size: 60px;
+            color: #00b4d8;
+            margin-bottom: 20px;
+        }
+
+        input[type="file"] {
+            display: none;
+        }
+
+        label.upload-label {
+            background: #00b4d8;
+            color: #0a0f1f;
+            padding: 10px 18px;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        label.upload-label:hover {
+            background: #0096c7;
+        }
+
+        .file-list {
+            margin-top: 30px;
+            background: #0f172a;
+            border-radius: 8px;
+            padding: 15px 25px;
+            max-height: 200px;
+            overflow-y: auto;
+            text-align: left;
+        }
+
+        .file-item {
+            margin: 6px 0;
+            font-size: 14px;
+            color: #cbd5e1;
+        }
+
+        .file-item::before {
+            content: "📄 ";
+        }
+
+        .submit-btn {
+            margin-top: 25px;
+            background: #00b4d8;
+            border: none;
+            border-radius: 8px;
+            padding: 10px 20px;
+            color: #0a0f1f;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .submit-btn:hover {
+            background: #0096c7;
+        }
+
+        .sample-section {
+            margin-top: 50px;
+            background: #1e293b;
+            border-radius: 10px;
+            padding: 25px 30px;
+        }
+
+        .sample-section h3 {
+            color: #00b4d8;
+            margin-bottom: 10px;
+        }
+
+        .sample-section pre {
+            background: #0f172a;
+            padding: 15px;
+            border-radius: 8px;
+            color: #cbd5e1;
+            font-size: 14px;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            font-size: 13px;
+            color: #64748b;
+        }
+    </style>
+</head>
+<body>
+
+<header>📤 Siêu dữ liệu bài học tải lên hàng loạt</header>
+
+<div class="container">
+    <h2>Tải lên nhiều tệp siêu dữ liệu</h2>
+    <p class="desc">Use this feature to upload multiple micro-learning lesson metadata files (CSV, JSON, or XML format) at once.</p>
+
+    <div class="upload-box" id="dropZone">
+        <div class="upload-icon">⬆️</div>
+        <p>Kéo và thả tập tin của bạn vào đây hoặc</p>
+        <label for="fileUpload" class="upload-label">Chọn Files</label>
+        <input type="file" id="fileUpload" multiple accept=".csv,.json,.xml" onchange="showFiles(event)">
+    </div>
+
+    <div class="file-list" id="fileList"></div>
+
+    <button class="submit-btn">🚀 Tải tất cả các Files</button>
+
+    <div class="sample-section">
+        <h3>📘 Ví dụ về Metadata (JSON)</h3>
+<pre>{
+  "lessonTitle": "Password Hygiene 101",
+  "duration": "4 minutes",
+  "type": "Video",
+  "tags": ["Security", "Password", "Awareness"],
+  "createdBy": "ContentMgr01"
+}</pre>
+    </div>
+</div>
+
+<div class="footer">
+    © 2025 CyberSafe Learning Platform — Secure Content Upload Module
+</div>
+
+<script>
+    function showFiles(event) {
+        const files = event.target.files;
+        const listDiv = document.getElementById('fileList');
+        listDiv.innerHTML = "";
+        for (let i = 0; i < files.length; i++) {
+            const item = document.createElement('div');
+            item.className = 'file-item';
+            item.textContent = files[i].name;
+            listDiv.appendChild(item);
+        }
+    }
+
+    // Drag & Drop visual highlight
+    const dropZone = document.getElementById('dropZone');
+    dropZone.addEventListener('dragover', e => {
+        e.preventDefault();
+        dropZone.style.borderColor = "#00b4d8";
+    });
+    dropZone.addEventListener('dragleave', e => {
+        dropZone.style.borderColor = "#334155";
+    });
+</script>
+
+</body>
+</html>

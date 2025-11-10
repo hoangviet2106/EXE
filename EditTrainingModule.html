@@ -1,0 +1,153 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Training Module</title>
+    <style>
+        body {
+            background: linear-gradient(135deg, #0a0f13, #10242f, #1c394a);
+            color: #fff;
+            font-family: 'Segoe UI', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 18px 40px;
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+            color: #00e5ff;
+            border-bottom: 2px solid #00e5ff;
+            letter-spacing: 1px;
+        }
+
+        .container {
+            width: 50%;
+            margin: 60px auto;
+            background: rgba(0, 0, 0, 0.6);
+            border-radius: 15px;
+            box-shadow: 0 0 25px rgba(0, 229, 255, 0.4);
+            padding: 35px 40px;
+        }
+
+        h2 {
+            text-align: center;
+            color: #00e5ff;
+            margin-bottom: 25px;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            margin-top: 15px;
+        }
+
+        input[type="text"], textarea, select {
+            width: 100%;
+            padding: 10px;
+            margin-top: 6px;
+            border: none;
+            border-radius: 5px;
+            background-color: #1b2836;
+            color: #fff;
+            font-size: 15px;
+        }
+
+        textarea {
+            resize: vertical;
+        }
+
+        .btn-group {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        button {
+            padding: 10px 25px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            background: #00e5ff;
+            color: #000;
+            font-weight: bold;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            margin: 0 10px;
+        }
+
+        button:hover {
+            background-color: #00bcd4;
+            transform: scale(1.05);
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            color: #aaa;
+            font-size: 13px;
+        }
+
+        .note {
+            font-size: 13px;
+            color: #aaa;
+            margin-top: 8px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        🛠 Chỉnh sửa Module đào tạo
+    </header>
+
+    <div class="container">
+        <h2>Sửa đổi chi tiết bài học</h2>
+
+        <!-- Dữ liệu module cần edit sẽ được load từ DB qua Servlet -->
+        <form action="UpdateModuleServlet" method="post">
+            <input type="hidden" name="moduleId" value="<%= request.getParameter("moduleId") %>
+
+            <label for="title">Tiêu đề bài học:</label>
+            <input type="text" id="title" name="title" %>
+            <label for="type">Dạng bài học:</label>
+            <select id="type" name="type" required>
+                <option value="">-- Select Type --</option>
+                <option value="Video" <%= "Video".equals(request.getParameter("type")) ? "selected" : "" %>Video</option>
+                <option value="Quiz" <%= "Quiz".equals(request.getParameter("type")) ? "selected" : "" %>Quiz</option>
+                <option value="Article" <%= "Article".equals(request.getParameter("type")) ? "selected" : "" %>Article</option>
+            </select>
+
+            <label for="duration">Khoảng (phút):</label>
+            <input type="text" id="duration" name="duration"  %>
+
+            <label for="category">Loại:</label>
+            <select id="category" name="category">
+                <option value="">-- Lựa chọn loại --</option>
+                <option value="Phishing Awareness">Phishing Awareness</option>
+                <option value="Password Security">Password Security</option>
+                <option value="Social Engineering">Social Engineering</option>
+                <option value="Email Safety">Email Safety</option>
+            </select>
+
+            <label for="description">Mô tả bài học:</label>
+            <textarea id="description" name="description" rows="3" placeholder="Update description..."></textarea>
+
+            <p class="note">💡 Đảm bảo các trường đều được điển chính xác trước khi lưu.</p>
+
+            <div class="btn-group">
+                <button type="submit">Lưu thay đổi</button>
+                <button type="reset">Cài lại</button>
+                <button type="button" onclick="window.location.href='ListTrainingModules.html'">Quay lại</button>
+            </div>
+        </form>
+    </div>
+
+    <footer>
+        &copy; 2025 PhishCoach | Secure Learning Management System
+    </footer>
+
+</body>
+</html>

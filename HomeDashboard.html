@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Trang chủ - PhishCoach</title>
+  <style>
+    body {
+      font-family: "Segoe UI", sans-serif;
+      background-color: #0a192f;
+      color: #e0e6ed;
+      margin: 0;
+      display: flex;
+    }
+
+    /* ===== Sidebar ===== */
+    .sidebar {
+      width: 270px;
+      background-color: #112240;
+      height: 100vh;
+      position: fixed;
+      top: 0;
+      left: 0;
+      display: flex;
+      flex-direction: column;
+      border-right: 1px solid #1f4068;
+      padding-top: 20px;
+    }
+
+    .sidebar h2 {
+      color: #64ffda;
+      font-size: 18px;
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .sidebar a {
+      text-decoration: none;
+      color: #e0e6ed;
+      padding: 12px 25px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      border-left: 3px solid transparent;
+      transition: 0.3s;
+      font-size: 15px;
+    }
+
+    .sidebar a:hover, .sidebar a.active {
+      background-color: #0f274a;
+      border-left: 3px solid #64ffda;
+      color: #64ffda;
+    }
+
+    /* ===== Main content ===== */
+    .main-content {
+      margin-left: 270px;
+      width: calc(100% - 270px);
+    }
+
+    header {
+      background: #112240;
+      color: #64ffda;
+      padding: 16px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #1f4068;
+    }
+
+    header h1 {
+      font-size: 22px;
+      margin: 0;
+    }
+
+    .container {
+      padding: 30px 60px;
+    }
+
+    .section-title {
+      font-size: 18px;
+      color: #64ffda;
+      margin-bottom: 15px;
+      border-left: 4px solid #64ffda;
+      padding-left: 10px;
+      font-weight: 600;
+    }
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 20px;
+      margin-bottom: 40px;
+    }
+
+    .card {
+      background-color: #112240;
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+      transition: transform 0.2s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      background-color: #0f274a;
+    }
+
+    .card h3 {
+      color: #64ffda;
+      margin-top: 0;
+      font-size: 17px;
+    }
+
+    .card p {
+      color: #bfcbd9;
+      font-size: 14px;
+    }
+
+    .badge {
+      display: inline-block;
+      background-color: #173f5f;
+      color: #3ccf91;
+      padding: 4px 8px;
+      border-radius: 8px;
+      font-size: 12px;
+      margin-top: 8px;
+    }
+
+    .btn-view {
+      background-color: #3ccf91;
+      color: #0a192f;
+      border: none;
+      padding: 8px 14px;
+      border-radius: 6px;
+      margin-top: 10px;
+      cursor: pointer;
+      transition: 0.2s;
+      font-weight: 500;
+    }
+
+    .btn-view:hover {
+      opacity: 0.85;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      font-size: 13px;
+      color: #999;
+      border-top: 1px solid #1f4068;
+      margin-top: 30px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===== Sidebar ===== -->
+  <div class="sidebar">
+    <h2>PhishCoach</h2>
+    <a href="HomeDashboard.html" class="active">🏠 Home</a>
+    <a href="ListTrainingModules.html">📚 List Training Modules</a>
+    <a href="ListQuizQuestions.html">🧩 List Quiz Questions</a>
+    <a href="AssignModuleToCampaign.html">📈 Assign Module To Campaign</a>
+    <a href="LessonCompletionDetail.html">📊 Lesson Completion Detail</a>
+    <a href="ListLessonCompletionRates.html">👥 Completion Rates</a>
+    <a href="MicroLearningPushLog.html">⚙️ PushLog</a>
+  </div>
+
+  <!-- ===== Main content ===== -->
+  <div class="main-content">
+    <header>
+      <h1>🎓 Trang chủ PhishCoach</h1>
+      <button class="btn-view" onclick="window.location.href='ListTrainingModules.html'">Xem tất cả Module</button>
+    </header>
+
+    <div class="container">
+      <!-- Hot Training Modules -->
+      <div>
+        <h2 class="section-title">🔥 Các Module đào tạo nổi bật</h2>
+        <div class="card-grid">
+          <div class="card">
+            <h3>Lesson 201: Phishing Awareness</h3>
+            <p>Học cách nhận biết các email lừa đảo, dấu hiệu nhận diện và biện pháp phòng tránh.</p>
+            <span class="badge">Active</span><br>
+            <button class="btn-view" onclick="window.location.href='ViewLessonContent.html'">Xem chi tiết</button>
+          </div>
+
+          <div class="card">
+            <h3>Lesson 202: Password Security</h3>
+            <p>Khóa học về cách đặt mật khẩu mạnh, quản lý thông tin tài khoản và MFA (xác thực đa yếu tố).</p>
+            <span class="badge">Active</span><br>
+            <button class="btn-view" onclick="window.location.href='ViewLessonContent.html'">Xem chi tiết</button>
+          </div>
+
+          <div class="card">
+            <h3>Lesson 203: Safe Internet Browsing</h3>
+            <p>Hướng dẫn an toàn khi truy cập website, tránh lộ thông tin cá nhân và mã độc.</p>
+            <span class="badge">Active</span><br>
+            <button class="btn-view" onclick="window.location.href='ViewLessonContent.html'">Xem chi tiết</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Popular Quiz Questions -->
+      <div>
+        <h2 class="section-title">💡 Câu hỏi trắc nghiệm được yêu thích</h2>
+        <div class="card-grid">
+          <div class="card">
+            <h3>Câu hỏi #101</h3>
+            <p>Email nào sau đây có thể là phishing email?</p>
+            <p><strong>Đáp án đúng:</strong> Email yêu cầu nhập lại mật khẩu ngân hàng.</p>
+            <span class="badge">Rating: ★★★★☆</span>
+          </div>
+
+          <div class="card">
+            <h3>Câu hỏi #108</h3>
+            <p>Điều gì giúp bảo vệ tài khoản bạn tốt nhất?</p>
+            <p><strong>Đáp án đúng:</strong> Kích hoạt xác thực hai yếu tố (2FA).</p>
+            <span class="badge">Rating: ★★★★★</span>
+          </div>
+
+          <div class="card">
+            <h3>Câu hỏi #114</h3>
+            <p>Trang web nào là an toàn để đăng nhập?</p>
+            <p><strong>Đáp án đúng:</strong> Trang web có HTTPS và chứng chỉ xác minh.</p>
+            <span class="badge">Rating: ★★★★☆</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      © 2025 PhishCoach | Secure Learning Platform
+    </footer>
+  </div>
+
+</body>
+</html>
