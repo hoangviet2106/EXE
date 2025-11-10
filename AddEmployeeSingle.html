@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Add Employee - PhishCoach Admin</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #0a0f1a; /* dark blue-black background */
+      color: #e0e8ff; /* light text */
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+
+    .form-container {
+      background: linear-gradient(145deg, #0f1b2e, #0c1322);
+      box-shadow: 0 0 25px rgba(0, 255, 255, 0.15);
+      border: 1px solid rgba(0, 255, 255, 0.2);
+      border-radius: 16px;
+      padding: 40px;
+      width: 400px;
+      transition: transform 0.3s ease;
+    }
+
+    .form-container:hover {
+      transform: translateY(-3px);
+    }
+
+    h2 {
+      color: #00e0ff;
+      text-align: center;
+      margin-bottom: 24px;
+      letter-spacing: 1px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 600;
+      color: #a8c0ff;
+    }
+
+    input, select {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #1f2a44;
+      border-radius: 6px;
+      background-color: #121a2e;
+      color: #e0e8ff;
+      margin-bottom: 18px;
+      transition: border-color 0.3s ease;
+    }
+
+    input:focus, select:focus {
+      border-color: #00e0ff;
+      outline: none;
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      border: none;
+      border-radius: 6px;
+      background-color: #00e0ff;
+      color: #0a0f1a;
+      font-weight: bold;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+
+    button:hover {
+      background-color: #00bcd4;
+      transform: scale(1.03);
+    }
+
+    .cyber-glow {
+      text-shadow: 0 0 8px #00e0ff, 0 0 16px #007bff;
+    }
+
+    .footer-text {
+      font-size: 12px;
+      color: #4a5c7a;
+      text-align: center;
+      margin-top: 16px;
+    }
+  </style>
+</head>
+<body>
+  <div class="form-container">
+    <h2 class="cyber-glow">Add New Employee</h2>
+    <form action="AddEmployeeSingleServlet" method="post">
+      <label for="fullname">Full Name</label>
+      <input type="text" id="fullname" name="fullname" placeholder="Enter full name" required>
+
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" placeholder="employee@company.com" required>
+
+      <label for="username">Username</label>
+      <input type="text" id="username" name="username" placeholder="username" required>
+
+      <label for="password">Temporary Password</label>
+      <input type="password" id="password" name="password" placeholder="Enter temporary password" required>
+
+      <label for="role">Role</label>
+      <select id="role" name="role" required>
+        <option value="">Select role</option>
+        <option value="Admin">Admin</option>
+        <option value="HR">HR</option>
+        <option value="Manager">Manager</option>
+        <option value="Employee">Employee</option>
+      </select>
+
+      <label for="department">Department</label>
+      <input type="text" id="department" name="department" placeholder="e.g., IT, Finance" required>
+
+      <button type="submit">Add Employee</button>
+      
+    </form>
+    <p class="footer-text">PhishCoach Admin Panel © 2025</p>
+  </div>
+</body>
+</html>

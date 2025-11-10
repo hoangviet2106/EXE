@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Danh sách Nhân viên - PhishCoach Quản trị</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      background-color: #0a192f;
+      color: #e0e6ed;
+      font-family: 'Segoe UI', sans-serif;
+      display: flex;
+      margin: 0;
+    }
+
+    /* Sidebar */
+    .sidebar {
+      width: 250px;
+      background-color: #112240;
+      min-height: 100vh;
+      position: fixed;
+      left: 0;
+      top: 0;
+      padding-top: 30px;
+      box-shadow: 2px 0 8px rgba(0,0,0,0.4);
+      border-right: 1px solid #1f4068;
+    }
+
+    .sidebar h4 {
+      color: #64ffda;
+      text-align: center;
+      margin-bottom: 30px;
+      font-weight: bold;
+      letter-spacing: 0.5px;
+    }
+
+    .nav-link {
+      color: #e0e6ed;
+      padding: 12px 25px;
+      display: block;
+      text-decoration: none;
+      transition: 0.3s;
+      font-weight: 500;
+      border-left: 3px solid transparent;
+    }
+
+    .nav-link:hover, .nav-link.active {
+      background-color: #0f274a;
+      color: #64ffda;
+      border-left: 3px solid #64ffda;
+    }
+
+    /* Main content */
+    .content {
+      margin-left: 250px;
+      padding: 30px 40px;
+      width: calc(100% - 250px);
+    }
+
+    h2 {
+      color: #64ffda;
+      margin-bottom: 25px;
+    }
+
+    /* Filter box */
+    .filter-section {
+      background-color: #112240;
+      border-radius: 10px;
+      padding: 20px;
+      margin-bottom: 25px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+      border: 1px solid #1f4068;
+    }
+
+    label {
+      color: #9eb3c2;
+      font-weight: 500;
+    }
+
+    select {
+      background-color: #0a192f;
+      color: #e0e6ed;
+      border: 1px solid #1f4068;
+      border-radius: 6px;
+      padding: 8px;
+    }
+
+    .btn-filter {
+      background-color: #64ffda;
+      border: none;
+      color: #0a192f;
+      font-weight: 600;
+      border-radius: 6px;
+      padding: 10px;
+    }
+
+    .btn-filter:hover {
+      background-color: #52e0c4;
+    }
+
+    /* Table style */
+    .table {
+      background-color: #112240;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+      color: #e0e6ed;
+    }
+
+    thead {
+      background-color: #1d3557;
+      color: #64ffda;
+      text-transform: uppercase;
+      font-size: 13px;
+      letter-spacing: 0.5px;
+    }
+
+    th, td {
+      padding: 14px 16px;
+      border-bottom: 1px solid #1f4068;
+    }
+
+    tr:hover {
+      background-color: #0f274a;
+      transition: 0.3s;
+    }
+
+    .status-low {
+      color: #3ccf91;
+      font-weight: 600;
+    }
+
+    .status-medium {
+      color: #ffba08;
+      font-weight: 600;
+    }
+
+    .status-high {
+      color: #e63946;
+      font-weight: 600;
+    }
+
+    footer {
+      text-align: center;
+      padding: 15px;
+      font-size: 13px;
+      color: #999;
+      border-top: 1px solid #1f4068;
+      margin-top: 30px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Sidebar Menu -->
+  <div class="sidebar">
+    <h4>PhishCoach Quản trị</h4>
+    <a href="ListEmployees.html" class="nav-link active">👥 Danh sách nhân viên</a>
+    <a href="AddEmployeeSingle.html" class="nav-link">➕ Thêm nhân viên</a>
+    <a href="AddEmployeeByBatch.html" class="nav-link">📦 Thêm hàng loạt</a>
+    <a href="EditEmployeeProfile.html" class="nav-link">✏️ Chỉnh sửa hồ sơ</a>
+    <a href="ViewDepartmentSummary.html" class="nav-link">🏢 Thống kê phòng ban</a>
+    <a href="ListUserRoles.html" class="nav-link">🛡️ Quản lý quyền & vai trò</a>
+    <a href="ResetPasswordAndSecurity.html" class="nav-link">🔐 Đặt lại mật khẩu & 2FA</a>
+    <a href="BanUserAndAppeal.html" class="nav-link">🚫 Khóa tài khoản & Khiếu nại</a>
+    <a href="AuditTrailUsers.html" class="nav-link">📜 Nhật ký hoạt động</a>
+    <a href="ViewEmployeeTimeline.html" class="nav-link">📈 Dòng thời gian nhân viên</a>
+  </div>
+
+  <!-- Main Content -->
+  <div class="content">
+    <h2>👥 Danh sách nhân viên & Mức độ rủi ro</h2>
+
+    <!-- Bộ lọc -->
+    <div class="filter-section">
+      <form class="row g-3">
+        <div class="col-md-4">
+          <label class="form-label">Phòng ban</label>
+          <select class="form-select">
+            <option>Tất cả</option>
+            <option>Tài chính</option>
+            <option>An ninh CNTT</option>
+            <option>Chăm sóc khách hàng</option>
+            <option>Marketing</option>
+          </select>
+        </div>
+        <div class="col-md-4">
+          <label class="form-label">Mức độ rủi ro</label>
+          <select class="form-select">
+            <option>Tất cả</option>
+            <option>Thấp</option>
+            <option>Trung bình</option>
+            <option>Cao</option>
+          </select>
+        </div>
+        <div class="col-md-4 d-flex align-items-end">
+          <button type="submit" class="btn btn-filter w-100">Áp dụng bộ lọc</button>
+        </div>
+      </form>
+    </div>
+
+    <!-- Bảng nhân viên -->
+    <table class="table table-borderless align-middle">
+      <thead>
+        <tr>
+          <th>ID Nhân viên</th>
+          <th>Họ và tên</th>
+          <th>Phòng ban</th>
+          <th>Chức vụ</th>
+          <th>Hoàn thành đào tạo</th>
+          <th>Mức độ rủi ro</th>
+          <th>Trạng thái</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>EMP001</td>
+          <td>Nguyễn Văn A</td>
+          <td>Tài chính</td>
+          <td>Chuyên viên cao cấp</td>
+          <td>95%</td>
+          <td><span class="status-low">Thấp</span></td>
+          <td>Đang hoạt động</td>
+        </tr>
+        <tr>
+          <td>EMP002</td>
+          <td>Lê Thị B</td>
+          <td>An ninh CNTT</td>
+          <td>Kỹ sư bảo mật</td>
+          <td>82%</td>
+          <td><span class="status-high">Cao</span></td>
+          <td>Cảnh báo</td>
+        </tr>
+        <tr>
+          <td>EMP003</td>
+          <td>Trần Quốc C</td>
+          <td>Chăm sóc khách hàng</td>
+          <td>Trưởng nhóm hỗ trợ</td>
+          <td>100%</td>
+          <td><span class="status-low">Thấp</span></td>
+          <td>Đang hoạt động</td>
+        </tr>
+        <tr>
+          <td>EMP004</td>
+          <td>Phạm Minh D</td>
+          <td>Marketing</td>
+          <td>Điều phối viên</td>
+          <td>76%</td>
+          <td><span class="status-medium">Trung bình</span></td>
+          <td>Đang hoạt động</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <footer>
+      © 2025 PhishCoach | Nền tảng đào tạo an toàn thông tin
+    </footer>
+  </div>
+
+</body>
+</html>

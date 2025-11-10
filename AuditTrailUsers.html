@@ -1,0 +1,162 @@
+<!DOCTYPE html> <html lang="en"> <head> <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0"> <title>User Audit Trail - PhishCoach Admin</title> <style> body { margin: 0; font-family: 'Poppins', sans-serif; background: radial-gradient(circle at top right, #041020, #000000 90%); color: #E6F1FF; min-height: 100vh; display: flex; justify-content: center; align-items: center; }
+.audit-container {
+  width: 90%;
+  max-width: 1000px;
+  background: rgba(15, 25, 40, 0.95);
+  border: 1px solid rgba(0, 255, 255, 0.25);
+  border-radius: 16px;
+  padding: 40px 50px;
+  box-shadow: 0 0 25px rgba(0, 255, 255, 0.2);
+}
+
+h2 {
+  text-align: center;
+  color: #00eaff;
+  text-shadow: 0 0 10px #00eaff, 0 0 18px #007bff;
+  margin-bottom: 25px;
+}
+
+.toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.toolbar input {
+  width: 250px;
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #1f2d45;
+  background-color: #0b1628;
+  color: #E6F1FF;
+  transition: border-color 0.3s ease;
+}
+
+.toolbar input:focus {
+  border-color: #00eaff;
+  outline: none;
+}
+
+.filter-btn {
+  background: linear-gradient(90deg, #00eaff, #00bcd4);
+  color: #0a0f1a;
+  border: none;
+  border-radius: 6px;
+  padding: 10px 20px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.filter-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.4);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: rgba(10, 20, 35, 0.85);
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 0 10px rgba(0, 255, 255, 0.1);
+}
+
+th, td {
+  padding: 14px 16px;
+  text-align: left;
+  font-size: 0.9rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+thead {
+  background: linear-gradient(90deg, #00eaff33, #008cff33);
+  border-bottom: 1px solid rgba(0, 255, 255, 0.2);
+}
+
+th {
+  color: #00eaff;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+tbody tr:hover {
+  background-color: rgba(0, 255, 255, 0.05);
+}
+
+.log-login {
+  color: #00ff99;
+}
+
+.log-edit {
+  color: #ffcc00;
+}
+
+.log-failed {
+  color: #ff4c4c;
+}
+
+.footer-text {
+  text-align: center;
+  font-size: 12px;
+  color: #5f7593;
+  margin-top: 25px;
+}
+
+</style> </head> <body> <div class="audit-container"> <h2>User Audit Trail</h2>
+<div class="toolbar">
+  <input type="text" placeholder="Search user or action...">
+  <button class="filter-btn">Filter</button>
+</div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Timestamp</th>
+      <th>User ID</th>
+      <th>Username</th>
+      <th>Action</th>
+      <th>IP Address</th>
+      <th>Status</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>2025-03-12 08:15:42</td>
+      <td>U001</td>
+      <td>john_admin</td>
+      <td class="log-login">Login Successful</td>
+      <td>192.168.1.15</td>
+      <td>OK</td>
+    </tr>
+    <tr>
+      <td>2025-03-12 08:17:10</td>
+      <td>U002</td>
+      <td>mary_hr</td>
+      <td class="log-failed">Failed Login Attempt</td>
+      <td>192.168.1.25</td>
+      <td>Failed</td>
+    </tr>
+    <tr>
+      <td>2025-03-12 09:00:20</td>
+      <td>U003</td>
+      <td>kevin_it</td>
+      <td class="log-edit">Profile Updated</td>
+      <td>172.16.0.45</td>
+      <td>OK</td>
+    </tr>
+    <tr>
+      <td>2025-03-12 09:45:35</td>
+      <td>U004</td>
+      <td>alice_mkt</td>
+      <td class="log-login">2FA Verified Login</td>
+      <td>10.0.0.33</td>
+      <td>OK</td>
+    </tr>
+  </tbody>
+</table>
+
+<p class="footer-text">PhishCoach Admin & Security Audit System © 2025</p>
+
+</div> </body> </html>

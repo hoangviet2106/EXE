@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User Roles Management - PhishCoach Admin</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: radial-gradient(circle at top right, #051020, #000000 90%);
+      color: #E6F1FF;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .roles-container {
+      width: 90%;
+      max-width: 1000px;
+      background: rgba(15, 25, 40, 0.95);
+      border: 1px solid rgba(0, 255, 255, 0.25);
+      border-radius: 18px;
+      padding: 40px 50px;
+      box-shadow: 0 0 25px rgba(0, 255, 255, 0.2);
+    }
+
+    h2 {
+      text-align: center;
+      color: #00eaff;
+      font-size: 1.8rem;
+      margin-bottom: 30px;
+      text-shadow: 0 0 8px #00eaff, 0 0 16px #007bff;
+    }
+
+    .toolbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    .toolbar input {
+      width: 250px;
+      padding: 10px;
+      border: 1px solid #1f2d45;
+      border-radius: 6px;
+      background-color: #0b1628;
+      color: #E6F1FF;
+      transition: border-color 0.3s ease;
+    }
+
+    .toolbar input:focus {
+      border-color: #00eaff;
+      outline: none;
+    }
+
+    .btn-add {
+      background: linear-gradient(90deg, #00eaff, #00bcd4);
+      color: #0a0f1a;
+      border: none;
+      border-radius: 6px;
+      padding: 10px 20px;
+      font-weight: bold;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .btn-add:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 20px rgba(0, 255, 255, 0.4);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: rgba(10, 20, 35, 0.85);
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 0 10px rgba(0, 255, 255, 0.1);
+    }
+
+    th, td {
+      padding: 14px 16px;
+      text-align: left;
+    }
+
+    thead {
+      background: linear-gradient(90deg, #00eaff33, #008cff33);
+      border-bottom: 1px solid rgba(0, 255, 255, 0.2);
+    }
+
+    th {
+      color: #00eaff;
+      font-weight: 600;
+      text-transform: uppercase;
+      font-size: 0.9rem;
+    }
+
+    td {
+      color: #bcd4ff;
+      font-size: 0.9rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    tbody tr:hover {
+      background-color: rgba(0, 255, 255, 0.05);
+    }
+
+    .action-btns button {
+      margin-right: 8px;
+      border: none;
+      border-radius: 5px;
+      padding: 6px 10px;
+      cursor: pointer;
+      font-size: 0.85rem;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+
+    .edit-btn {
+      background-color: #00bcd4;
+      color: #0a0f1a;
+    }
+
+    .edit-btn:hover {
+      background-color: #00eaff;
+    }
+
+    .delete-btn {
+      background-color: #ff4c4c;
+      color: white;
+    }
+
+    .delete-btn:hover {
+      background-color: #ff6666;
+    }
+
+    .footer-text {
+      text-align: center;
+      font-size: 12px;
+      color: #5f7593;
+      margin-top: 25px;
+    }
+  </style>
+</head>
+<body>
+  <div class="roles-container">
+    <h2>User Roles & Permissions</h2>
+
+    <div class="toolbar">
+      <input type="text" placeholder="Search role...">
+      <button class="btn-add">+ Add Role</button>
+    </div>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Role ID</th>
+          <th>Role Name</th>
+          <th>Description</th>
+          <th>Permissions</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>Admin</td>
+          <td>Full access to all modules</td>
+          <td>CRUD: Users, Reports, Billing</td>
+          <td class="action-btns">
+            <button class="edit-btn">Edit</button>
+            <button class="delete-btn">Delete</button>
+          </td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>Manager</td>
+          <td>View analytics, manage campaigns</td>
+          <td>Read: Reports, Campaigns</td>
+          <td class="action-btns">
+            <button class="edit-btn">Edit</button>
+            <button class="delete-btn">Delete</button>
+          </td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>ContentMgr</td>
+          <td>Manage templates and lessons</td>
+          <td>CRUD: Content, Templates</td>
+          <td class="action-btns">
+            <button class="edit-btn">Edit</button>
+            <button class="delete-btn">Delete</button>
+          </td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td>Employee</td>
+          <td>Participate in training & simulations</td>
+          <td>View: Lessons, Reports</td>
+          <td class="action-btns">
+            <button class="edit-btn">Edit</button>
+            <button class="delete-btn">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p class="footer-text">PhishCoach Admin Panel © 2025</p>
+  </div>
+</body>
+</html>

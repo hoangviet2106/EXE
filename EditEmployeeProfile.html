@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Edit Employee Profile - PhishCoach Admin</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: radial-gradient(circle at top left, #071021, #000000 80%);
+      color: #E6F1FF;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .edit-card {
+      width: 450px;
+      padding: 40px;
+      background: rgba(15, 25, 40, 0.95);
+      border: 1px solid rgba(0, 255, 255, 0.25);
+      box-shadow: 0 0 25px rgba(0, 255, 255, 0.15);
+      border-radius: 18px;
+      backdrop-filter: blur(6px);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .edit-card::before {
+      content: "";
+      position: absolute;
+      top: -80px;
+      left: -80px;
+      width: 250px;
+      height: 250px;
+      background: rgba(0, 255, 255, 0.1);
+      filter: blur(60px);
+      border-radius: 50%;
+      z-index: 0;
+    }
+
+    h2 {
+      text-align: center;
+      color: #00eaff;
+      font-size: 1.6rem;
+      margin-bottom: 25px;
+      text-shadow: 0 0 8px #00eaff, 0 0 15px #007bff;
+      position: relative;
+      z-index: 2;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 6px;
+      color: #bcd4ff;
+      font-size: 0.9rem;
+      font-weight: 500;
+      letter-spacing: 0.5px;
+    }
+
+    input, select {
+      width: 100%;
+      padding: 10px 12px;
+      background-color: #0b1628;
+      border: 1px solid #1a2e47;
+      border-radius: 6px;
+      color: #E6F1FF;
+      margin-bottom: 18px;
+      transition: all 0.3s ease;
+      position: relative;
+      z-index: 2;
+    }
+
+    input:focus, select:focus {
+      border-color: #00eaff;
+      box-shadow: 0 0 8px #00eaff50;
+      outline: none;
+    }
+
+    .readonly-field {
+      background-color: #101c33;
+      color: #7a8ca8;
+      cursor: not-allowed;
+    }
+
+    .btn-group {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 8px;
+    }
+
+    button {
+      flex: 1;
+      padding: 12px;
+      margin: 5px;
+      border: none;
+      border-radius: 6px;
+      font-weight: bold;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-size: 0.9rem;
+      letter-spacing: 0.8px;
+    }
+
+    .btn-save {
+      background: linear-gradient(90deg, #00eaff, #00bcd4);
+      color: #0a0f1a;
+      box-shadow: 0 0 10px rgba(0, 255, 255, 0.3);
+    }
+
+    .btn-save:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 20px rgba(0, 255, 255, 0.4);
+    }
+
+    .btn-cancel {
+      background-color: #132338;
+      color: #E6F1FF;
+      border: 1px solid #1f3a52;
+    }
+
+    .btn-cancel:hover {
+      background-color: #1b314d;
+      transform: scale(1.05);
+    }
+
+    .footer-text {
+      text-align: center;
+      font-size: 12px;
+      color: #5f7593;
+      margin-top: 18px;
+    }
+  </style>
+</head>
+<body>
+  <div class="edit-card">
+    <h2>Edit Employee Profile</h2>
+    <form action="EditEmployeeProfileServlet" method="post">
+      <label for="employeeId">Employee ID</label>
+      <input type="text" id="employeeId" name="employeeId" class="readonly-field" readonly value="EMP12345">
+
+      <label for="fullname">Full Name</label>
+      <input type="text" id="fullname" name="fullname" class="readonly-field" readonly value="Nguyen Van A">
+
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" class="readonly-field" readonly value="nguyenvana@company.com">
+
+      <label for="role">Role</label>
+      <select id="role" name="role" required>
+        <option value="Admin">Admin</option>
+        <option value="HR" selected>HR</option>
+        <option value="Manager">Manager</option>
+        <option value="Employee">Employee</option>
+      </select>
+
+      <label for="department">Department</label>
+      <input type="text" id="department" name="department" value="Finance">
+
+      <label for="risk">Risk Level</label>
+      <select id="risk" name="risk">
+        <option value="Low">Low</option>
+        <option value="Medium" selected>Medium</option>
+        <option value="High">High</option>
+      </select>
+
+      <div class="btn-group">
+        <button type="submit" class="btn-save">Save</button>
+        <button type="button" class="btn-cancel" onclick="window.history.back()">Cancel</button>
+      </div>
+    </form>
+    <p class="footer-text">PhishCoach Admin Panel © 2025</p>
+  </div>
+</body>
+</html>

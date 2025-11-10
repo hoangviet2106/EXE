@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Department Summary - PhishCoach Dashboard</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: radial-gradient(circle at top left, #061020, #000000 85%);
+      color: #E6F1FF;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .summary-container {
+      width: 90%;
+      max-width: 1000px;
+      background: rgba(15, 25, 40, 0.9);
+      border: 1px solid rgba(0, 255, 255, 0.25);
+      border-radius: 18px;
+      padding: 40px 50px;
+      box-shadow: 0 0 25px rgba(0, 255, 255, 0.15);
+    }
+
+    h2 {
+      text-align: center;
+      color: #00eaff;
+      font-size: 1.8rem;
+      margin-bottom: 30px;
+      text-shadow: 0 0 10px #00eaff, 0 0 18px #008cff;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: rgba(10, 20, 35, 0.85);
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 0 10px rgba(0, 255, 255, 0.1);
+    }
+
+    th, td {
+      padding: 14px 16px;
+      text-align: left;
+    }
+
+    thead {
+      background: linear-gradient(90deg, #00eaff33, #008cff33);
+      border-bottom: 1px solid rgba(0, 255, 255, 0.2);
+    }
+
+    th {
+      color: #00eaff;
+      font-weight: 600;
+      text-transform: uppercase;
+      font-size: 0.9rem;
+    }
+
+    tbody tr:hover {
+      background-color: rgba(0, 255, 255, 0.05);
+    }
+
+    td {
+      color: #bcd4ff;
+      font-size: 0.9rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .risk-low {
+      color: #00ff99;
+      font-weight: bold;
+    }
+
+    .risk-medium {
+      color: #ffcc00;
+      font-weight: bold;
+    }
+
+    .risk-high {
+      color: #ff4c4c;
+      font-weight: bold;
+    }
+
+    .summary-card {
+      display: flex;
+      justify-content: space-around;
+      margin-top: 30px;
+      text-align: center;
+    }
+
+    .card {
+      background: rgba(10, 25, 45, 0.8);
+      border: 1px solid rgba(0, 255, 255, 0.2);
+      border-radius: 12px;
+      padding: 20px;
+      width: 30%;
+      box-shadow: 0 0 15px rgba(0, 255, 255, 0.1);
+      transition: transform 0.3s ease;
+    }
+
+    .card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
+    }
+
+    .card h3 {
+      color: #00eaff;
+      font-size: 1rem;
+      margin-bottom: 10px;
+    }
+
+    .card p {
+      font-size: 1.4rem;
+      font-weight: bold;
+      color: #E6F1FF;
+    }
+
+    .footer-text {
+      text-align: center;
+      font-size: 12px;
+      color: #5f7593;
+      margin-top: 25px;
+    }
+  </style>
+</head>
+<body>
+  <div class="summary-container">
+    <h2>Department Risk & Performance Summary</h2>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Department</th>
+          <th>Employees</th>
+          <th>Phish-Prone Rate (PPR)</th>
+          <th>Report Rate</th>
+          <th>Average Quiz Score</th>
+          <th>Risk Level</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>IT Department</td>
+          <td>25</td>
+          <td>8%</td>
+          <td>92%</td>
+          <td>95%</td>
+          <td class="risk-low">Low</td>
+        </tr>
+        <tr>
+          <td>Finance</td>
+          <td>15</td>
+          <td>22%</td>
+          <td>70%</td>
+          <td>82%</td>
+          <td class="risk-medium">Medium</td>
+        </tr>
+        <tr>
+          <td>Marketing</td>
+          <td>18</td>
+          <td>38%</td>
+          <td>52%</td>
+          <td>68%</td>
+          <td class="risk-high">High</td>
+        </tr>
+        <tr>
+          <td>HR</td>
+          <td>10</td>
+          <td>12%</td>
+          <td>88%</td>
+          <td>90%</td>
+          <td class="risk-low">Low</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="summary-card">
+      <div class="card">
+        <h3>Total Departments</h3>
+        <p>4</p>
+      </div>
+      <div class="card">
+        <h3>Overall Phish-Prone Rate</h3>
+        <p>20%</p>
+      </div>
+      <div class="card">
+        <h3>Average Report Rate</h3>
+        <p>76%</p>
+      </div>
+    </div>
+
+    <p class="footer-text">PhishCoach Analytics Dashboard © 2025</p>
+  </div>
+</body>
+</html>

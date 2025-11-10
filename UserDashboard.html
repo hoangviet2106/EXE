@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>User Dashboard - PhishCoach Admin</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    body {
+      margin: 0;
+      background-color: #0b132b;
+      color: #e0e6ed;
+      font-family: 'Segoe UI', sans-serif;
+      display: flex;
+    }
+    /* Sidebar */
+    .sidebar {
+      width: 250px;
+      background-color: #1c2541;
+      min-height: 100vh;
+      position: fixed;
+      left: 0;
+      top: 0;
+      padding-top: 30px;
+      box-shadow: 2px 0 10px rgba(0,0,0,0.4);
+    }
+    .sidebar h4 {
+      color: #00aaff;
+      text-align: center;
+      margin-bottom: 30px;
+      font-weight: bold;
+    }
+    .nav-link {
+      color: #e0e6ed;
+      padding: 12px 25px;
+      display: block;
+      text-decoration: none;
+      transition: 0.3s;
+      font-weight: 500;
+    }
+    .nav-link:hover, .nav-link.active {
+      background-color: #3a506b;
+      color: #00aaff;
+      text-shadow: 0 0 8px #00aaff;
+    }
+
+    /* Main content */
+    .content {
+      margin-left: 250px;
+      padding: 30px;
+      width: 100%;
+    }
+    .card {
+      background-color: #1c2541;
+      border: 1px solid rgba(0, 170, 255, 0.2);
+      border-radius: 12px;
+      color: #e0e6ed;
+      box-shadow: 0 0 15px rgba(0, 170, 255, 0.1);
+      transition: transform 0.3s ease;
+    }
+    .card:hover {
+      transform: scale(1.03);
+      box-shadow: 0 0 20px rgba(0, 170, 255, 0.3);
+    }
+    .card h6 {
+      color: #a9c6ff;
+      font-size: 0.9rem;
+    }
+    .card h3 {
+      color: #00aaff;
+    }
+    .activity-list {
+      background-color: #1c2541;
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.4);
+    }
+    .activity-item {
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+      padding: 10px 0;
+      font-size: 0.9rem;
+    }
+    .activity-item:last-child {
+      border-bottom: none;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Sidebar Menu -->
+  <div class="sidebar">
+    <h4>PhishCoach Admin</h4>
+    <a href="UserDashboard.html" class="nav-link active">🏠 Dashboard Home</a>
+    <a href="ListEmployees.html" class="nav-link">👥 Employee List</a>
+    <a href="AddEmployeeSingle.html" class="nav-link">➕ Add Employee</a>
+    <a href="AddEmployeeByBatch.html" class="nav-link">➕ Add Employee By Batch</a>
+    <a href="EditEmployeeProfile.html" class="nav-link">✏️ Edit Profile</a>
+    <a href="ViewDepartmentSummary.html" class="nav-link">🏢 Department Summary</a>
+    <a href="ListUserRoles.html" class="nav-link">🛡️ User Roles</a>
+    <a href="ResetPasswordAndSecurity.html" class="nav-link">🔐 Security Settings</a>
+    <a href="BanUserAndAppeal.html" class="nav-link">🚫 Ban & Appeal</a>
+    <a href="AuditTrailUsers.html" class="nav-link">📜 Audit Trail</a>
+    <a href="ViewEmployeeTimeline.html" class="nav-link">📈 User Timeline</a>
+  </div>
+
+  <!-- Main Content -->
+  <div class="content">
+    <h2 class="text-info mb-4">User Management Dashboard</h2>
+
+    <!-- Overview Cards -->
+    <div class="row g-4 mb-4">
+      <div class="col-md-3">
+        <div class="card p-3 text-center">
+          <h6>Total Employees</h6>
+          <h3>124</h3>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="card p-3 text-center">
+          <h6>Active Accounts</h6>
+          <h3 class="text-success">118</h3>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="card p-3 text-center">
+          <h6>At Risk Users</h6>
+          <h3 class="text-warning">6</h3>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="card p-3 text-center">
+          <h6>Suspended Users</h6>
+          <h3 class="text-danger">2</h3>
+        </div>
+      </div>
+    </div>
+
+    <!-- Charts Section -->
+    <div class="row g-4 mb-4">
+      <div class="col-md-8">
+        <div class="card p-3">
+          <h6 class="text-info">📊 Training Completion by Department</h6>
+          <canvas id="trainingChart" height="180"></canvas>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card p-3">
+          <h6 class="text-info">🧠 Risk Level Distribution</h6>
+          <canvas id="riskChart" height="200"></canvas>
+        </div>
+      </div>
+    </div>
+
+    <!-- Activity Section -->
+    <div class="activity-list">
+      <h5 class="text-info mb-3">Recent Activity</h5>
+      <div class="activity-item">🔐 Admin reset password for <strong>EMP045</strong></div>
+      <div class="activity-item">🟢 User <strong>EMP021</strong> completed training</div>
+      <div class="activity-item">⚠️ Account <strong>EMP056</strong> flagged as high risk</div>
+      <div class="activity-item">🛡️ New role added: “Security Analyst”</div>
+      <div class="activity-item">🚫 User <strong>EMP078</strong> temporarily suspended</div>
+    </div>
+  </div>
+
+  <!-- Chart.js Script -->
+  <script>
+    // Training Completion Bar Chart
+    const trainingCtx = document.getElementById('trainingChart');
+    new Chart(trainingCtx, {
+      type: 'bar',
+      data: {
+        labels: ['Finance', 'IT Security', 'Customer Support', 'Marketing', 'HR'],
+        datasets: [{
+          label: 'Training Completion (%)',
+          data: [95, 88, 100, 76, 90],
+          backgroundColor: ['rgba(0, 170, 255, 0.6)'],
+          borderColor: '#00aaff',
+          borderWidth: 1
+        }]
+      },
+      options: {
+        scales: {
+          y: {
+            beginAtZero: true,
+            ticks: { color: '#e0e6ed' },
+            grid: { color: 'rgba(255,255,255,0.1)' }
+          },
+          x: {
+            ticks: { color: '#e0e6ed' },
+            grid: { display: false }
+          }
+        },
+        plugins: {
+          legend: { display: false },
+          tooltip: {
+            backgroundColor: '#1c2541',
+            titleColor: '#00aaff',
+            bodyColor: '#e0e6ed'
+          }
+        }
+      }
+    });
+
+    // Risk Level Pie Chart
+    const riskCtx = document.getElementById('riskChart');
+    new Chart(riskCtx, {
+      type: 'doughnut',
+      data: {
+        labels: ['Low Risk', 'Medium Risk', 'High Risk'],
+        datasets: [{
+          label: 'Risk Distribution',
+          data: [65, 25, 10],
+          backgroundColor: ['#1dd1a1', '#ffcc00', '#ff6b6b'],
+          borderColor: '#0b132b',
+          borderWidth: 2
+        }]
+      },
+      options: {
+        plugins: {
+          legend: {
+            labels: { color: '#e0e6ed' }
+          }
+        }
+      }
+    });
+  </script>
+
+</body>
+</html>

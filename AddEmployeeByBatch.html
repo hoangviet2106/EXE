@@ -1,0 +1,144 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bulk Import Employees - PhishCoach Admin</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #0b132b;
+            color: #e0e6ed;
+            font-family: 'Segoe UI', sans-serif;
+        }
+        .navbar {
+            background-color: #1c2541;
+        }
+        .navbar-brand {
+            color: #00aaff;
+            font-weight: bold;
+        }
+        .upload-card {
+            background-color: #1c2541;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.4);
+        }
+        .btn-upload {
+            background-color: #00aaff;
+            border: none;
+            color: white;
+            font-weight: 500;
+            transition: 0.3s;
+        }
+        .btn-upload:hover {
+            background-color: #0090d1;
+        }
+        .table {
+            background-color: #1c2541;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        th {
+            background-color: #3a506b;
+            color: #ffffff;
+        }
+        tr:hover {
+            background-color: #1f4068;
+        }
+        .hint-box {
+            background-color: #0f1d3d;
+            padding: 15px;
+            border-radius: 8px;
+            font-size: 0.9rem;
+        }
+        .status-success {
+            color: #1dd1a1;
+            font-weight: 600;
+        }
+        .status-fail {
+            color: #ff6b6b;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-dark px-4">
+    <a class="navbar-brand" href="#">PhishCoach Admin Panel</a>
+</nav>
+
+<div class="container my-5">
+    <h2 class="mb-4 text-info">Bulk Import Employees (CSV Upload)</h2>
+
+    <!-- 📤 Upload Card -->
+    <div class="upload-card mb-4">
+        <form action="UploadEmployeeBatchServlet" method="post" enctype="multipart/form-data">
+            <div class="mb-3">
+                <label for="csvFile" class="form-label text-light">Select CSV File</label>
+                <input type="file" class="form-control bg-dark text-light border-0" id="csvFile" name="csvFile" accept=".csv" required>
+            </div>
+            <div class="mb-3">
+                <button type="submit" class="btn btn-upload w-100 py-2">Upload & Validate</button>
+            </div>
+        </form>
+
+        <!-- 💡 CSV Format Instructions -->
+        <div class="hint-box mt-3">
+            <strong>CSV Format:</strong><br>
+            Each line should contain: <code>EmployeeID, FullName, Department, Role, Email</code><br>
+            Example:<br>
+            <code>EMP001, Nguyen Van A, Finance, Analyst, nva@company.com</code><br>
+            <code>EMP002, Le Thi B, IT Security, Engineer, ltb@company.com</code>
+        </div>
+    </div>
+
+    <!-- 📋 Preview Table -->
+    <h4 class="text-info mb-3">📊 Preview Uploaded Data</h4>
+    <table class="table table-striped table-borderless align-middle text-light">
+        <thead>
+            <tr>
+                <th>Employee ID</th>
+                <th>Full Name</th>
+                <th>Department</th>
+                <th>Role</th>
+                <th>Email</th>
+                <th>Validation</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>EMP001</td>
+                <td>Nguyen Van A</td>
+                <td>Finance</td>
+                <td>Analyst</td>
+                <td>nva@company.com</td>
+                <td><span class="status-success">✅ Valid</span></td>
+            </tr>
+            <tr>
+                <td>EMP002</td>
+                <td>Le Thi B</td>
+                <td>IT Security</td>
+                <td>Engineer</td>
+                <td>ltb@company.com</td>
+                <td><span class="status-success">✅ Valid</span></td>
+            </tr>
+            <tr>
+                <td>EMP003</td>
+                <td>Tran Van C</td>
+                <td></td>
+                <td>Support</td>
+                <td>tvc@company.com</td>
+                <td><span class="status-fail">❌ Missing Department</span></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <!-- ✅ Import Confirmation -->
+    <div class="text-end mt-3">
+        <button class="btn btn-upload px-4">Confirm Import</button>
+    </div>
+</div>
+
+</body>
+</html>

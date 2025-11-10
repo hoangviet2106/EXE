@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Employee Timeline - PhishCoach Admin</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: radial-gradient(circle at top right, #051020, #000000 85%);
+      color: #E6F1FF;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .timeline-container {
+      width: 80%;
+      max-width: 900px;
+      background: rgba(15, 25, 40, 0.9);
+      border: 1px solid rgba(0, 255, 255, 0.25);
+      border-radius: 16px;
+      padding: 30px 50px;
+      box-shadow: 0 0 25px rgba(0, 255, 255, 0.2);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .timeline-container::before {
+      content: "";
+      position: absolute;
+      top: -100px;
+      right: -100px;
+      width: 300px;
+      height: 300px;
+      background: rgba(0, 255, 255, 0.08);
+      filter: blur(70px);
+      border-radius: 50%;
+    }
+
+    h2 {
+      text-align: center;
+      color: #00eaff;
+      font-size: 1.8rem;
+      margin-bottom: 30px;
+      text-shadow: 0 0 8px #00eaff, 0 0 16px #007bff;
+    }
+
+    .timeline {
+      position: relative;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .timeline::before {
+      content: "";
+      position: absolute;
+      left: 50%;
+      width: 2px;
+      height: 100%;
+      background: rgba(0, 255, 255, 0.3);
+      transform: translateX(-50%);
+    }
+
+    .timeline-item {
+      position: relative;
+      margin: 30px 0;
+      width: 50%;
+      padding: 20px 30px;
+      background: rgba(10, 20, 35, 0.85);
+      border: 1px solid rgba(0, 255, 255, 0.15);
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0, 255, 255, 0.1);
+      transition: transform 0.3s ease;
+    }
+
+    .timeline-item:hover {
+      transform: scale(1.03);
+      box-shadow: 0 0 25px rgba(0, 255, 255, 0.3);
+    }
+
+    .timeline-item.left {
+      left: 0;
+    }
+
+    .timeline-item.right {
+      left: 50%;
+      transform: translateX(20px);
+    }
+
+    .timeline-item::after {
+      content: "";
+      position: absolute;
+      top: 20px;
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: #00eaff;
+      box-shadow: 0 0 10px #00eaff;
+    }
+
+    .timeline-item.left::after {
+      right: -8px;
+    }
+
+    .timeline-item.right::after {
+      left: -8px;
+    }
+
+    .timeline-date {
+      font-size: 0.85rem;
+      color: #7da0cc;
+      margin-bottom: 8px;
+    }
+
+    .timeline-title {
+      font-size: 1.1rem;
+      color: #00eaff;
+      margin-bottom: 6px;
+    }
+
+    .timeline-description {
+      font-size: 0.9rem;
+      line-height: 1.5;
+      color: #bcd4ff;
+    }
+
+    .footer-text {
+      text-align: center;
+      font-size: 12px;
+      color: #5f7593;
+      margin-top: 20px;
+    }
+
+    @media (max-width: 768px) {
+      .timeline::before {
+        left: 10px;
+      }
+      .timeline-item, .timeline-item.right {
+        width: calc(100% - 40px);
+        left: 20px;
+        transform: none;
+      }
+      .timeline-item::after {
+        left: -25px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="timeline-container">
+    <h2>Employee Timeline - Nguyen Van A</h2>
+    <ul class="timeline">
+      <li class="timeline-item left">
+        <div class="timeline-date">Jan 15, 2025</div>
+        <div class="timeline-title">Phishing Simulation - Campaign #12</div>
+        <div class="timeline-description">Clicked on simulated email from “FakeBank” → Triggered micro-learning module.</div>
+      </li>
+
+      <li class="timeline-item right">
+        <div class="timeline-date">Jan 15, 2025</div>
+        <div class="timeline-title">Micro-Learning Completed</div>
+        <div class="timeline-description">Completed 5-minute lesson on “Recognizing Suspicious Links”. Quiz Score: 90%.</div>
+      </li>
+
+      <li class="timeline-item left">
+        <div class="timeline-date">Feb 5, 2025</div>
+        <div class="timeline-title">Reported Phishing Attempt</div>
+        <div class="timeline-description">Successfully reported simulated phishing email within 3 minutes. Earned 10 points in leaderboard.</div>
+      </li>
+
+      <li class="timeline-item right">
+        <div class="timeline-date">Feb 20, 2025</div>
+        <div class="timeline-title">Campaign Result Update</div>
+        <div class="timeline-description">Phish-Prone Rate improved to 12% (previously 35%).</div>
+      </li>
+
+      <li class="timeline-item left">
+        <div class="timeline-date">Mar 2, 2025</div>
+        <div class="timeline-title">Completed Compliance Training</div>
+        <div class="timeline-description">Finished module “Data Privacy and Safe Sharing”. Status: Completed with 100% quiz accuracy.</div>
+      </li>
+    </ul>
+    <p class="footer-text">PhishCoach Admin Panel © 2025</p>
+  </div>
+</body>
+</html>
